@@ -185,10 +185,10 @@ function Blog() {
                 <p className="text-xl text-white/90 mb-8">
                   {currentFeaturedPost.excerpt}
                 </p>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col items-center gap-4">
                   <button
                     onClick={() => handlePostClick(currentFeaturedPost.id)}
-                    className="inline-flex items-center gap-2 bg-[#11CD80] text-white px-6 py-3 rounded-xl hover:bg-[#0fb46f] transition-colors"
+                    className="inline-flex items-center gap-2 bg-[#11CD80] text-white px-6 py-3 rounded-xl hover:bg-[#0fb46f] transition-colors w-fit"
                   >
                     Continuar Lendo
                     <ArrowRight className="w-5 h-5" />

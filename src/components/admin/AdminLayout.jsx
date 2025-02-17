@@ -12,14 +12,16 @@ import {
   CreditCard,
   LogOut,
   Menu,
-  X
+  X,
+  Home,
+  Tag,
+  Briefcase
 } from 'lucide-react';
 
 const menuItems = [
   { path: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+  { path: '/admin/landing', icon: Home, label: 'Landing Page' },
   { path: '/admin/posts', icon: FileText, label: 'Artigos' },
-  { path: '/admin/landing', icon: Layout, label: 'Landing Page' },
-  { path: '/admin/pages', icon: File, label: 'Páginas' },
   { path: '/admin/categories', icon: FolderOpen, label: 'Categorias' },
   { path: '/admin/plans', icon: CreditCard, label: 'Planos' },
   { path: '/admin/settings', icon: Settings, label: 'Configurações' },

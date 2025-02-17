@@ -257,27 +257,17 @@ function BlogPost() {
 
                 {/* Article content */}
                 <div className="prose max-w-none">
-                  <p className="text-lg text-gray-600 mb-6">
-                    Estar com o nome sujo pode ser um verdadeiro pesadelo. Além de dificultar o acesso ao crédito, essa situação pode afetar várias áreas da sua vida, desde a busca por um emprego até o aluguel de um imóvel.
-                  </p>
-
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Entenda sua situação</h2>
-                  <p className="text-gray-600 mb-6">
-                    O primeiro passo para limpar seu nome é entender exatamente qual é sua situação. Isso significa:
-                  </p>
-                  <ul className="list-disc pl-6 mb-6 text-gray-600">
-                    <li>Consultar seu CPF nos principais órgãos de proteção ao crédito</li>
-                    <li>Identificar todas as dívidas em seu nome</li>
-                    <li>Verificar os valores atualizados de cada débito</li>
-                    <li>Confirmar a legitimidade das cobranças</li>
-                  </ul>
-
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Organize suas finanças</h2>
-                  <p className="text-gray-600 mb-6">
-                    Antes de começar as negociações, é fundamental organizar suas finanças para evitar novos problemas no futuro.
-                  </p>
-
-                  {/* More content sections would go here */}
+                  {loading ? (
+                    <div className="flex items-center justify-center py-8">
+                      <div className="w-8 h-8 border-4 border-[#11CD80] border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                  ) : error ? (
+                    <div className="bg-red-100 text-red-800 p-4 rounded-lg">
+                      {error}
+                    </div>
+                  ) : post && (
+                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                  )}
                 </div>
                 {/* Navigation */}
                 <div className="mt-12 flex items-center justify-between pt-8 border-t border-gray-100">

@@ -185,13 +185,33 @@ function Blog() {
                 <p className="text-xl text-white/90 mb-8">
                   {currentFeaturedPost.excerpt}
                 </p>
-                <button
-                  onClick={() => handlePostClick(currentFeaturedPost.id)}
-                  className="inline-flex items-center gap-2 bg-[#11CD80] text-white px-6 py-3 rounded-xl hover:bg-[#0fb46f] transition-colors"
-                >
-                  Continuar Lendo
-                  <ArrowRight className="w-5 h-5" />
-                </button>
+                <div className="flex flex-col gap-4">
+                  <button
+                    onClick={() => handlePostClick(currentFeaturedPost.id)}
+                    className="inline-flex items-center gap-2 bg-[#11CD80] text-white px-6 py-3 rounded-xl hover:bg-[#0fb46f] transition-colors"
+                  >
+                    Continuar Lendo
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                  {featuredPosts.length > 1 && (
+                    <div className="absolute left-0 right-0 bottom-8 flex justify-center gap-4 mt-4">
+                      <button
+                        onClick={handlePrevFeatured}
+                        className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                        aria-label="Post anterior"
+                      >
+                        <ChevronLeft className="w-6 h-6" />
+                      </button>
+                      <button
+                        onClick={handleNextFeatured}
+                        className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                        aria-label="Próximo post"
+                      >
+                        <ChevronRight className="w-6 h-6" />
+                      </button>
+                    </div>
+                  )}
+                </div>
               </motion.div>
             ) : (
               <>
@@ -204,22 +224,6 @@ function Blog() {
               </>
             )}
           </motion.div>
-          {featuredPosts.length > 1 && (
-            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4">
-              <button
-                onClick={handlePrevFeatured}
-                className="p-2 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-colors"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={handleNextFeatured}
-                className="p-2 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-colors"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
-          )}
         </div>
       </section>
 

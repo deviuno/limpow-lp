@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+@media (min-width: 768px) {
+    .md\:grid-cols-2 {
+        padding-bottom: 68px;
+    }
+}
+
+.max-w-\[280px\] {
+    max-width: 384px !important;
+}

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, User, Facebook, Twitter, Linkedin, Share2, ChevronRight, ChevronLeft, Home } from 'lucide-react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { SEO } from '../lib/seo';
 
 async function recordView(postId) {
@@ -19,7 +19,7 @@ async function recordView(postId) {
 }
 
 function BlogPost() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [post, setPost] = React.useState(null);
   const [prevPost, setPrevPost] = React.useState(null);
   const [nextPost, setNextPost] = React.useState(null);
@@ -31,10 +31,10 @@ function BlogPost() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (id) {
+    if (slug) {
       fetchPost();
     }
-  }, []);
+  }, [slug]);
 
   // Fetch current post and navigation posts
   const fetchPost = async () => {
@@ -46,15 +46,15 @@ function BlogPost() {
           *,
           category:categories(*)
         `)
-        .eq('id', id)
+        .eq('slug', slug)
         .single();
 
       if (error) throw error;
       
       if (data) {
         setPost(data);
-        fetchRelatedPosts(data.category_id, data.id);
-        recordView(id);
+        fetchRelatedPosts(data.category_id, data.slug);
+        recordView(data.id);
 
         // Fetch previous post
         const { data: prevData, error: prevError } = await supabase
@@ -91,7 +91,7 @@ function BlogPost() {
   };
 
   // Fetch related posts
-  const fetchRelatedPosts = async (categoryId, currentPostId) => {
+  const fetchRelatedPosts = async (categoryId, currentSlug) => {
     try {
       // First try to get posts from the same category
       let { data: categoryPosts } = await supabase
@@ -105,7 +105,7 @@ function BlogPost() {
         `)
         .eq('status', 'published')
         .eq('category_id', categoryId)
-        .neq('id', currentPostId)
+        .neq('slug', currentSlug)
         .order('published_at', { ascending: false })
         .limit(3);
 
@@ -123,7 +123,7 @@ function BlogPost() {
           `)
           .eq('status', 'published')
           .neq('category_id', categoryId)
-          .neq('id', currentPostId)
+          .neq('slug', currentSlug)
           .order('published_at', { ascending: false })
           .limit(remainingCount);
 
@@ -257,17 +257,27 @@ function BlogPost() {
 
                 {/* Article content */}
                 <div className="prose max-w-none">
-                  {loading ? (
-                    <div className="flex items-center justify-center py-8">
-                      <div className="w-8 h-8 border-4 border-[#11CD80] border-t-transparent rounded-full animate-spin"></div>
-                    </div>
-                  ) : error ? (
-                    <div className="bg-red-100 text-red-800 p-4 rounded-lg">
-                      {error}
-                    </div>
-                  ) : post && (
-                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                  )}
+                  <p className="text-lg text-gray-600 mb-6">
+                    Estar com o nome sujo pode ser um verdadeiro pesadelo. Além de dificultar o acesso ao crédito, essa situação pode afetar várias áreas da sua vida, desde a busca por um emprego até o aluguel de um imóvel.
+                  </p>
+
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Entenda sua situação</h2>
+                  <p className="text-gray-600 mb-6">
+                    O primeiro passo para limpar seu nome é entender exatamente qual é sua situação. Isso significa:
+                  </p>
+                  <ul className="list-disc pl-6 mb-6 text-gray-600">
+                    <li>Consultar seu CPF nos principais órgãos de proteção ao crédito</li>
+                    <li>Identificar todas as dívidas em seu nome</li>
+                    <li>Verificar os valores atualizados de cada débito</li>
+                    <li>Confirmar a legitimidade das cobranças</li>
+                  </ul>
+
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Organize suas finanças</h2>
+                  <p className="text-gray-600 mb-6">
+                    Antes de começar as negociações, é fundamental organizar suas finanças para evitar novos problemas no futuro.
+                  </p>
+
+                  {/* More content sections would go here */}
                 </div>
                 {/* Navigation */}
                 <div className="mt-12 flex items-center justify-between pt-8 border-t border-gray-100">

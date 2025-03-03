@@ -11,7 +11,8 @@ import {
   Percent, 
   Star, 
   ChevronRight, 
-  Users 
+  Users,
+  Headphones
 } from 'lucide-react';
 import { getPlans } from '../lib/plans';
 
@@ -222,6 +223,74 @@ function Home() {
           </svg>
         </div>
       </div>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Resultados que Transformam Vidas</h2>
+            <p className="text-xl text-gray-600">Conheça o impacto da Limpow na vida de milhares de brasileiros</p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex flex-col items-center">
+                <div className="text-[#11CD80] mb-2">
+                  <Users className="w-8 h-8" />
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900">52K+</h3>
+                <p className="text-gray-700 font-medium">Vidas Transformadas</p>
+                <p className="text-sm text-gray-500 text-center mt-2">
+                  Brasileiros que recuperaram sua liberdade financeira com a Limpow
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex flex-col items-center">
+                <div className="text-[#11CD80] mb-2">
+                  <CheckCircle className="w-8 h-8" />
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900">98%</h3>
+                <p className="text-gray-700 font-medium">Clientes Satisfeitos</p>
+                <p className="text-sm text-gray-500 text-center mt-2">
+                  Avaliação positiva dos nossos clientes em pesquisas de satisfação
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex flex-col items-center">
+                <div className="text-[#11CD80] mb-2">
+                  <Clock className="w-8 h-8" />
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900">15d</h3>
+                <p className="text-gray-700 font-medium">Prazo Médio</p>
+                <p className="text-sm text-gray-500 text-center mt-2">
+                  Tempo médio para limpar seu nome e recuperar seu crédito
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex flex-col items-center">
+                <div className="text-[#11CD80] mb-2">
+                  <Headphones className="w-8 h-8" />
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900">24/7</h3>
+                <p className="text-gray-700 font-medium">Suporte Disponível</p>
+                <p className="text-sm text-gray-500 text-center mt-2">
+                  Atendimento humanizado disponível todos os dias, 24h por dia
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Como Funciona Section */}
       <section className="py-24 bg-white">

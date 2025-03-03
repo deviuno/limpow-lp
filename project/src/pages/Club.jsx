@@ -25,6 +25,8 @@ const partners = [
 ];
 
 function Club() {
+  const whatsappLink = "https://api.whatsapp.com/send?phone=5511950871211&text=Oi,%20quero%20limpar%20meu%20nome";
+  
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -50,13 +52,13 @@ function Club() {
                 Nosso clube traz vantagens exclusivas, experiências imperdíveis e preços especiais para você.
               </p>
               <div className="mb-8 md:mb-0">
-                <a
-                  href="#"
+                <Link
+                  to="/signup"
                   className="bg-white text-[#11CD80] px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors inline-flex items-center gap-2 font-semibold"
                 >
                   Ver Descontos
                   <ArrowRight className="w-5 h-5" />
-                </a>
+                </Link>
               </div>
             </motion.div>
 
@@ -186,13 +188,13 @@ function Club() {
                 A maior variedade de estabelecimentos e produtos com desconto você encontra aqui.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#"
+                <Link
+                  to="/signup"
                   className="bg-[#11CD80] text-white px-8 py-4 rounded-xl hover:bg-[#0fb46f] transition-colors inline-flex items-center justify-center gap-2"
                 >
                   Ver todos os descontos
                   <ArrowRight className="w-5 h-5" />
-                </a>
+                </Link>
               </div>
             </motion.div>
 
@@ -236,7 +238,9 @@ function Club() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="#"
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[#11CD80] text-white px-8 py-4 rounded-xl hover:bg-[#0fb46f] transition-colors inline-flex items-center justify-center gap-2"
               >
                 Falar com um Consultor

@@ -95,8 +95,6 @@ function Categories() {
         slug: '',
         description: '',
         icon: 'FileText',
-        color: '#11CD80',
-        icon: 'FileText',
         color: '#11CD80'
       });
       setImageFile(null);

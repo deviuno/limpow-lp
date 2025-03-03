@@ -28,6 +28,7 @@ function Club() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
+      {/* Versão atualizada em 02/03/2025 - DEBUG */}
       <section className="bg-[#11CD80] relative overflow-hidden min-h-[560px] flex items-end">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-[#11CD80] to-[#125959]"></div>

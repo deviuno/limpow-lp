@@ -1,14 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "project/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "buildCommand": "cd project && npm install && npm run build",
-        "outputDirectory": "project/dist"
-      }
-    }
-  ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }

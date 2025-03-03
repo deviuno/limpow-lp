@@ -232,8 +232,8 @@ function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Resultados que Transformam Vidas</h2>
-            <p className="text-xl text-gray-600">Conheça o impacto da Limpow na vida de milhares de brasileiros</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Nosso Impacto em Números</h2>
+            <p className="text-xl text-gray-600">Mais de 52 mil brasileiros já transformaram suas vidas financeiras com a Limpow</p>
           </motion.div>
           
           <div className="grid md:grid-cols-4 gap-8">
